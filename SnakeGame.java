@@ -53,7 +53,7 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener{
         gameLoop = new Timer(100, this);
         gameLoop.start();
 
-        velocityX = 0;//ni artinya pas awal mulai game, kecepatannya 0 (g bergerak)
+        velocityX = 0;
         velocityY = 0;
     }
 
@@ -73,20 +73,17 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener{
         if (!gameOver) {
             //Snake Head
             g.setColor(Color.green);
-            //g.fillRect(snakeHead.x*tileSize, snakeHead.y*tileSize, tileSize, tileSize);
             g.fill3DRect(snakeHead.x * tileSize, snakeHead.y * tileSize, tileSize, tileSize, true);
 
             //Snake Body
             for (int i = 0; i < snakeBody.size(); i++) {
                 Tile snakePart = snakeBody.get(i);
-                //g.fillRect(snakePart.x*tileSize, snakePart.y*tileSize, tileSize, tileSize);
                 g.fill3DRect(snakePart.x * tileSize, snakePart.y * tileSize, tileSize, tileSize, true);
             }
 
 
             //Food
             g.setColor(Color.red);
-            //g.fillRect(food.x*tileSize, food.y*tileSize, tileSize, tileSize);
             g.fill3DRect(food.x * tileSize, food.y * tileSize, tileSize, tileSize, true);
         }
 
@@ -157,8 +154,8 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener{
     public void resetGame() {
         // Set ulang posisi awal snake dan makanan
         snakeHead = new Tile(5, 5);
-        snakeBody.clear();  // Hapus semua segmen tubuh snake
-        placeFood();        // Tempatkan makanan di posisi baru
+        snakeBody.clear(); 
+        placeFood();      
 
         // Set ulang arah dan status game
         velocityX = 0;
